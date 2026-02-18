@@ -22,7 +22,6 @@ public class TextShortcuts
     public void Monitor()
     {
         var activeView = Editor.ViewHandler.ActiveView;
-
         // Save
         if (InputManager.IsPressed(KeybindID.Save))
         {
@@ -64,35 +63,39 @@ public class TextShortcuts
                 }
             }
 
-            // Create
-            if (InputManager.IsPressed(KeybindID.TextEditor_Create_New_Entry))
-            {
-                activeView.NewEntryModal.ShowModal = true;
-            }
+            if (FocusManager.IsFocus(EditorFocusContext.TextEditor_EntryList))
 
-            // TODO: remove this if we add Copy/Paste functionality
-            // Configurable Duplicate
-            if (InputManager.IsPressed(KeybindID.TextEditor_Configurable_Duplicate))
             {
-                ImGui.OpenPopup("textDuplicatePopup");
-            }
+                // Create
+                if (InputManager.IsPressed(KeybindID.TextEditor_Create_New_Entry))
+                {
+                    activeView.NewEntryModal.ShowModal = true;
+                }
 
-            // Standard Duplicate
-            if (InputManager.IsPressed(KeybindID.Duplicate))
-            {
-                activeView.ActionHandler.DuplicateEntries();
-            }
+                // TODO: remove this if we add Copy/Paste functionality
+                // Configurable Duplicate
+                if (InputManager.IsPressed(KeybindID.TextEditor_Configurable_Duplicate))
+                {
+                    ImGui.OpenPopup("textDuplicatePopup");
+                }
 
-            // Delete
-            if (InputManager.IsPressed(KeybindID.Delete))
-            {
-                activeView.ActionHandler.DeleteEntries();
-            }
+                // Standard Duplicate
+                if (InputManager.IsPressed(KeybindID.Duplicate))
+                {
+                    activeView.ActionHandler.DuplicateEntries();
+                }
 
-            // Focus Selected Entry
-            if (InputManager.IsPressed(KeybindID.Jump))
-            {
-                activeView.Selection.FocusFmgEntrySelection = true;
+                // Delete
+                if (InputManager.IsPressed(KeybindID.Delete))
+                {
+                    activeView.ActionHandler.DeleteEntries();
+                }
+
+                // Focus Selected Entry
+                if (InputManager.IsPressed(KeybindID.Jump))
+                {
+                    activeView.Selection.FocusFmgEntrySelection = true;
+                }
             }
         }
     }
