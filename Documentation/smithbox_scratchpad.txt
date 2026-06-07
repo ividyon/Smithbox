@@ -1,31 +1,22 @@
 #---------------------
 # TODO 
 #---------------------
-- Model Editor
- - Rendering experiment (TinyFFR)
- - Mesh visbility/delete not working properly
- 
 - Map Editor
- - Add visualisation (via primitive meshes) of enemy AI radiuses (sight, listen, smell)
+ - Check BTL saving (for DS2)
  
-- Material Editor:
- - Add MATBIN support back
- 
-- Param Editor
- - Validate the padding in new DS2 defs is empty (if values are present, cross-check with old defs and restore)
- - Finish converting the SDT AlternativeOrders into Field Layouts
- - Translate DS2 meta
- - Finish AC6 meta
- 
-- Text Editor:
- - Add split ID / Entry Text (similar to Param Editor) for the Entry List
- - Add reorder functionality on drag (+ sort entry list action)
+- Map Data Editor
+ - Implement property edit
+ - Port over Local/Global Search and Mass Edit
+ - Implement ENFL sub-editor
  
 - Gparam Editor:
  - Add multi-select for the value list (and to duplicate/delete/export)
  
-# Entity / Model flow:
+- Material Editor:
+ - Add MATBIN support back for the params (the value cannot be edited currently)
+ 
+- Param Editor
+ - Look into making row merges for tabulated params functional and simple
+ - Finish converting the SDT AlternativeOrders into Field Layouts
+ - Finish AC6 meta
 
-- LoadMapAsync: starts process
- - MapContainer.LoadMSB: iterate over each map object, create the entities
- - MapResourceHandler.Setup<x>LoadLists: builds the descriptors to send to the resource manager
