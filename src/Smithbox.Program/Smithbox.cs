@@ -65,7 +65,7 @@ public class Smithbox
         Instance = this;
 
         _version = version;
-        _programTitle = $"Smithbox - {_version}";
+        _programTitle = $"Smithbox - {_version} fork";
 
         UIHelper.RestoreImguiIfMissing();
         // Hack to make sure dialogs work before the main window is created
@@ -178,11 +178,11 @@ public class Smithbox
 
     public void SetProgramName(ProjectEntry curProject)
     {
-        _context.Window.Title = $"{curProject.Descriptor.ProjectName} - {_version}";
+        _context.Window.Title = $"{curProject.Descriptor.ProjectName} - {_version} fork";
     }
     public void ResetProgramName()
     {
-        _context.Window.Title = $"Smithbox - {_version}";
+        _context.Window.Title = $"Smithbox - {_version} fork";
     }
 
     public void SaveConfiguration()
@@ -615,25 +615,25 @@ public class Smithbox
         // Tool windows
         ColorPicker.DisplayColorPicker();
 
-        if (_programUpdateAvailable)
-        {
-            ImGui.Separator();
-
-            if (ImGui.BeginMenu("Update"))
-            {
-                if (ImGui.MenuItem("Go to Release"))
-                {
-                    Process myProcess = new();
-                    myProcess.StartInfo.UseShellExecute = true;
-                    myProcess.StartInfo.FileName = _releaseUrl;
-                    myProcess.Start();
-                }
-
-                ImGui.EndMenu();
-            }
-
-            ImGui.Separator();
-        }
+        // if (_programUpdateAvailable)
+        // {
+        //     ImGui.Separator();
+        //
+        //     if (ImGui.BeginMenu("Update"))
+        //     {
+        //         if (ImGui.MenuItem("Go to Release"))
+        //         {
+        //             Process myProcess = new();
+        //             myProcess.StartInfo.UseShellExecute = true;
+        //             myProcess.StartInfo.FileName = _releaseUrl;
+        //             myProcess.Start();
+        //         }
+        //
+        //         ImGui.EndMenu();
+        //     }
+        //
+        //     ImGui.Separator();
+        // }
 
         ImGui.PopStyleVar(2);
 
